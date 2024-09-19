@@ -1,13 +1,14 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { Alert, Button, Col, Form } from 'react-bootstrap';
 import AuthContext from '../../context/AuthContext';
-import { redirect } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 /**
  * Created the Login component.
  */
 function Login() {
   const { signIn } = useContext(AuthContext);
+  const navigate = useNavigate();
   const [validated, setValidated] = useState<boolean>(true);
   const [formInvalid, setFormInvalid] = useState<boolean>(false);
 
@@ -18,17 +19,18 @@ function Login() {
 
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
-      console.log('something is invalid!');
       setFormInvalid(true);
       return;
     }
 
     setFormInvalid(false);
-    console.log(`email=${form.email.value}, password=${form.password.value}`);
     await signIn(form.email.value, form.password.value);
-    console.log('finished!? login component!?');
-    redirect("/home");
+    goTo("/home");
   };
+
+  const goTo = useCallback((page: string) => {
+    navigate(page);
+  }, []);
 
   useEffect(() => {}, [formInvalid]);
 
@@ -56,10 +58,29 @@ function Login() {
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit">
+        <Button
+          variant="primary"
+          type="submit"
+        >
           Login
         </Button>
       </Form>
+
+      <Button
+        variant="seconday"
+        type="button"
+        onClick={() => goTo("/register")}
+      >
+        Register
+      </Button>
+
+      <Button
+        variant="seconday"
+        type="button"
+        onClick={() => goTo("/")}
+      >
+        Back to home
+      </Button>
 
       {formInvalid ? (
         <Alert variant={"danger"}>
