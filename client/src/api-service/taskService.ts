@@ -1,9 +1,9 @@
 import { API_TOKEN } from '../app-constants/app-constants';
-import TaskRequest from '../types/TaskRequest';
+import TaskNoteRequest from '../types/TaskNoteRequest';
 import { TaskResponse } from '../types/TaskResponse';
 import ApiConfig from './apiConfig';
 
-async function addTaskRequest(task: TaskRequest): Promise<TaskResponse | Error> {
+async function addTaskRequest(task: TaskNoteRequest): Promise<TaskResponse | Error> {
   try {
     const tokenState = localStorage.getItem(API_TOKEN);
     const response = await fetch(ApiConfig.tasksUrl, {
