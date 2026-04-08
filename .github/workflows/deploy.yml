@@ -1,4 +1,4 @@
-name: Deploy to K3s
+name: Deploy to prod
 
 on:
   workflow_dispatch:
@@ -14,7 +14,7 @@ on:
         required: false
         default: "true"
   workflow_run:
-    workflows: [ "Backend Build & Push", "Frontend Build & Push" ]
+    workflows: [ "Backend Main", "Frontend Main" ]
     types: [ completed ]
 
 jobs:
