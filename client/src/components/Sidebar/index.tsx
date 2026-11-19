@@ -25,7 +25,7 @@ function Sidebar(props: React.PropsWithChildren<Props>): React.ReactNode {
   const [lastSeen, setLastSeen] = useState('');
   const { t } = useTranslation();
   const build = `Build: ${env.VITE_BUILD}`;
-  const changeLogUrl = 'https://github.com/thermcampos/tasknote/blob/main/CHANGELOG.md';
+  const releasesUrl = 'https://github.com/thermcampos/app-tasknote/releases';
 
   // Note: when selected, change class to plus-jakarta-sans-thin and add background
 
@@ -131,7 +131,7 @@ function Sidebar(props: React.PropsWithChildren<Props>): React.ReactNode {
           )}
           <a
             data-testid="footer-text"
-            href={changeLogUrl}
+            href={releasesUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="footer-link"

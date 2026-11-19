@@ -129,6 +129,6 @@ describe('Build link visibility', () => {
     );
     const link = getByTestId('footer-text');
     expect(link.classList.contains('footer-link')).toBe(true);
-    expect(link.getAttribute('href')).toContain('CHANGELOG.md');
+    expect(link.getAttribute('href')).toBe('https://github.com/thermcampos/app-tasknote/releases');
   });
 });
