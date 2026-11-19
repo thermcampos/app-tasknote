@@ -1,9 +1,10 @@
 # TaskNote
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![Frontend CI](https://lightroasted.vps-kinghost.net/rmcampos/tasknote/actions/workflows/ci-main-frontend.yml/badge.svg)](https://lightroasted.vps-kinghost.net/rmcampos/tasknote/actions/?workflow=ci-main-frontend.yml)
-[![Backend CI](https://lightroasted.vps-kinghost.net/rmcampos/tasknote/actions/workflows/ci-main-backend.yml/badge.svg)](https://lightroasted.vps-kinghost.net/rmcampos/tasknote/actions/?workflow=ci-main-backend.yml)
-[![Deploy](https://lightroasted.vps-kinghost.net/rmcampos/tasknote/actions/workflows/cd-main.yml/badge.svg)](https://lightroasted.vps-kinghost.net/rmcampos/tasknote/actions/?workflow=cd-main.yml)
+[![CI](https://github.com/thermcampos/app-tasknote/actions/workflows/ci.yml/badge.svg)](https://github.com/thermcampos/app-tasknote/actions/workflows/ci.yml)
+[![Frontend CD](https://github.com/thermcampos/app-tasknote/actions/workflows/cd-frontend.yml/badge.svg)](https://github.com/thermcampos/app-tasknote/actions/workflows/cd-frontend.yml)
+[![Backend CD](https://github.com/thermcampos/app-tasknote/actions/workflows/cd-backend.yml/badge.svg)](https://github.com/thermcampos/app-tasknote/actions/workflows/cd-backend.yml)
+[![Deploy](https://github.com/thermcampos/app-tasknote/actions/workflows/deploy.yml/badge.svg)](https://github.com/thermcampos/app-tasknote/actions/workflows/deploy.yml)
 
 ## 📋 Table of Contents
 

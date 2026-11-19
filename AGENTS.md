@@ -50,7 +50,7 @@
 
 ### Issue tracker
 
-Issues and specs live as GitHub issues in `thermcampos/tasknote`. Use the `gh` CLI for all operations. See `docs/agents/issue-tracker.md`.
+Issues and specs live as GitHub issues in `thermcampos/app-tasknote`. Use the `gh` CLI for all operations. See `docs/agents/issue-tracker.md`.
 
 ### Triage labels
 

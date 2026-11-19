@@ -9,7 +9,7 @@ If you want to contribute, please create a fork and a Merge Request. Take a look
 ## Steps to Contribute
 
 1. Fork the Project
-2. Clone it on your local (`git clone https://lightroasted.vps-kinghost.net/rmcampos/tasknote.git`)
+2. Clone it on your local (`git clone https://github.com/thermcampos/app-tasknote.git`)
 3. Develop your amazing feature/changes
 4. Make sure your name is set (`git config user.name 'YOUR NAME'; git config user.email 'YOUR EMAIL'`)
 5. Commit your changes (`git commit -m 'Add some amazing feature'`)
