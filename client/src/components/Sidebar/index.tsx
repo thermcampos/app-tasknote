@@ -6,6 +6,7 @@ import AuthContext from '../../context/AuthContext';
 import SidebarContext from '../../context/SidebarContext';
 import NavButton from '../NavButton';
 import { env } from '../../env';
+import { releaseInfo } from '../../utils/ReleaseVersion';
 import './style.scss';
 import { BoxArrowRight, ChevronDoubleLeft, ChevronDoubleRight, InfoCircleFill, Link45deg, PersonFill, StarFill } from 'react-bootstrap-icons';
 
@@ -24,8 +25,7 @@ function Sidebar(props: React.PropsWithChildren<Props>): React.ReactNode {
   const { currentPage, setNewPage, isCollapsed, toggleCollapsed } = useContext(SidebarContext);
   const [lastSeen, setLastSeen] = useState('');
   const { t } = useTranslation();
-  const build = `Build: ${env.VITE_BUILD}`;
-  const releasesUrl = 'https://github.com/thermcampos/app-tasknote/releases';
+  const release = releaseInfo(env.VITE_RELEASE, env.VITE_BUILD);
 
   // Note: when selected, change class to plus-jakarta-sans-thin and add background
 
@@ -131,13 +131,13 @@ function Sidebar(props: React.PropsWithChildren<Props>): React.ReactNode {
           )}
           <a
             data-testid="footer-text"
-            href={releasesUrl}
+            href={release.href}
             target="_blank"
             rel="noopener noreferrer"
             className="footer-link"
-            title={isCollapsed ? build : undefined}
+            title={isCollapsed ? release.label : undefined}
           >
-            {isCollapsed ? <Link45deg /> : <small>{build}</small>}
+            {isCollapsed ? <Link45deg /> : <small>{release.label}</small>}
           </a>
         </div>
       </div>

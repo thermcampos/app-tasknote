@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # Smoke test for a built client image.
 # Starts the given client image and checks that Caddy serves the app shell,
-# the runtime env.js, and falls back to index.html for client-side routes.
+# the runtime env.js (including RELEASE_VERSION, set the way Terraform sets it in
+# prod), and falls back to index.html for client-side routes.
 #
 # Usage: APP_IMAGE=ghcr.io/thermcampos/tasknote/client:pr-123 bash tools/smoke-test-frontend.sh
 # Optional: GHCR_USER + GHCR_TOKEN to log in to GHCR before pulling.
@@ -11,6 +12,7 @@ APP_IMAGE="${APP_IMAGE:?APP_IMAGE env var is required}"
 APP_CONTAINER="tasknote-smoke-app"
 APP_URL="http://localhost:5000"
 BACKEND_URL="http://localhost:8585"
+RELEASE_VERSION="v2000.01.01.1"
 
 cleanup() {
   local status=$?
@@ -38,6 +40,7 @@ docker pull "$APP_IMAGE"
 echo "Starting app..."
 docker run -d --name "$APP_CONTAINER" -p 5000:5000 \
   -e VITE_BACKEND_SERVER="$BACKEND_URL" \
+  -e RELEASE_VERSION="$RELEASE_VERSION" \
   "$APP_IMAGE" >/dev/null
 
 echo "Waiting for ${APP_URL}..."
@@ -59,6 +62,7 @@ echo "OK: index"
 echo "Fetching env.js..."
 body=$(curl -fsS "$APP_URL/env.js")
 grep -q "\"VITE_BACKEND_SERVER\":\"${BACKEND_URL}\"" <<<"$body" || fail "env.js missing VITE_BACKEND_SERVER: ${body}"
+grep -q "\"VITE_RELEASE\":\"${RELEASE_VERSION}\"" <<<"$body" || fail "env.js missing VITE_RELEASE: ${body}"
 echo "OK: env.js"
 
 echo "Fetching a client-side route..."

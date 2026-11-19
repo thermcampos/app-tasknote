@@ -135,7 +135,7 @@ task docker-build-web
 
 ## 🏷️ Releases
 
-There is no `CHANGELOG.md`. Each deploy that changes production creates a [GitHub Release](https://github.com/thermcampos/app-tasknote/releases) tagged `vYYYY.MM.DD.<deploy run>`. Its notes list the deployed `server`/`client` image tags and the PRs merged since the previous release. The `release` job in `.github/workflows/deploy.yml` runs `.github/scripts/release.sh`; preview a release locally with `DRY_RUN=1` (see the script header).
+There is no `CHANGELOG.md`. Each deploy that changes production creates a [GitHub Release](https://github.com/thermcampos/app-tasknote/releases) tagged `vYYYY.MM.DD.<deploy run>`. Its notes list the deployed `server`/`client` image tags and the PRs merged since the previous release. The app's sidebar shows the same release tag, linked to its release. `.github/workflows/deploy.yml` picks the tag with `.github/scripts/release-tag.sh` before deploying and creates the release with `.github/scripts/release.sh`; preview a release locally with `DRY_RUN=1` (see the script header).
 
 ## 🧪 Testing & Checks
 

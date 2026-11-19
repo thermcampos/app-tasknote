@@ -88,6 +88,13 @@ variable "frontend_image" {
   default = "rmcampos/tasknote-app:latest"
 }
 
+# Release tag (vYYYY.MM.DD.N) the client serves in /env.js; set by deploy.yml from
+# .github/scripts/release-tag.sh. Empty = the Sidebar falls back to the build number.
+variable "release_version" {
+  type    = string
+  default = ""
+}
+
 resource "kubernetes_namespace_v1" "tasknote" {
   metadata {
     name = "tasknote"
@@ -323,6 +330,10 @@ resource "kubernetes_deployment_v1" "tasknote_frontend" {
           env {
             name  = "VITE_BACKEND_SERVER"
             value = "https://tasknoteapi.darkroasted.vps-kinghost.net"
+          }
+          env {
+            name  = "RELEASE_VERSION"
+            value = var.release_version
           }
         }
       }
