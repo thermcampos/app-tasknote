@@ -42,7 +42,7 @@
 
   handle /env.js {
     header Content-Type "text/javascript"
-    respond `window.config = {"VITE_BACKEND_SERVER":"{$VITE_BACKEND_SERVER}","VITE_BUILD":"{$VITE_BUILD}"};`
+    respond `window.config = {"VITE_BACKEND_SERVER":"{$VITE_BACKEND_SERVER}","VITE_BUILD":"{$VITE_BUILD}","VITE_RELEASE":"{$RELEASE_VERSION}"};`
   }
 
   # SPA fallback: serve the file if it exists, otherwise index.html with 200,
