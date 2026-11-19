@@ -10,7 +10,7 @@
     "node",
     "nestjs"
   ],
-  "repository": "https://lightroasted.vps-kinghost.net/rmcampos/tasknote",
+  "repository": "https://github.com/thermcampos/app-tasknote",
   "private": true,
   "dependencies": {
     "@milkdown/kit": "^7.23.0",

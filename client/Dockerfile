@@ -29,7 +29,7 @@ LABEL org.opencontainers.image.authors="Ricardo Campos <ricardompcampos@gmail.co
       org.opencontainers.image.title="TaskNoteApp client" \
       org.opencontainers.image.description="React Web app application" \
       org.opencontainers.image.version="${SOURCE_PR}" \
-      org.opencontainers.image.source="https://lightroasted.vps-kinghost.net/rmcampos/tasknote"
+      org.opencontainers.image.source="https://github.com/thermcampos/app-tasknote"
 
 # Copy files and run formatting
 COPY --from=build /app/dist/ /app/dist
