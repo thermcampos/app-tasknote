@@ -63,7 +63,7 @@
     <checkstyle.version>3.6.0</checkstyle.version>
     <springboot.version>4.1.2</springboot.version>
     <jjwt.version>0.13.0</jjwt.version>
-    <flyway.version>13.12.1</flyway.version>
+    <flyway.version>13.12.2</flyway.version>
   </properties>
 
   <!-- Profiles -->
